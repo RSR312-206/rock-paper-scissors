@@ -1,0 +1,3 @@
+1) set up body and outer div in HTML
+2) set up divs and data sets in the HTML
+3)

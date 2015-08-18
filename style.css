@@ -1,0 +1,19 @@
+div {
+  float: left;
+  padding-bottom: 200px;
+  width:200px;
+  border: solid 1px black;
+  margin: 10px;
+  display: block;
+  height: 200px;
+}
+
+#score {
+  float: right;
+  padding-bottom: 50px;
+  width:550px;
+  border: solid 1px black;
+  margin: 10px;
+  display: block;
+  height: 50px;
+}
