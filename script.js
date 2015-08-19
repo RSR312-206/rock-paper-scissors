@@ -4,10 +4,7 @@ var scoreTally = 0;
 var lossTally = 0;
 
 var score = document.getElementById('score');
-score.innerHTML = 'wins ' + scoreTally;
-
 var loss = document.getElementById('losses');
-loss.innerHTML = 'losses ' + lossTally;
 
 function randomAnswer() {
   var options = ['rock', 'paper', 'scissors', 'rock', 'paper', 'scissors'];
