@@ -11,7 +11,10 @@ function randomAnswer() {
   var answer = options[Math.floor(Math.random()*options.length)];
    return answer;
  }
-
+function tallyUpdate() {
+  score.innerHTML = 'wins ' + scoreTally;
+  loss.innerHTML = 'losses ' + lossTally;
+}
 
 var rock = document.getElementById('rock');
 rock.addEventListener("click", rockResults);
@@ -27,9 +30,7 @@ function rockResults() {
   } else if (computerAnswer  == 'rock') {
     alert('rock, a tie');
   }
-score.innerHTML = 'wins ' + scoreTally;
-loss.innerHTML = 'losses ' + lossTally;
-
+tallyUpdate();
 }
 
 var paper = document.getElementById('paper');
@@ -46,8 +47,7 @@ function paperResults() {
     scoreTally += 1;
     alert('paper, you won');
   }
-score.innerHTML = 'wins ' + scoreTally;
-loss.innerHTML = 'losses ' + lossTally;
+tallyUpdate();
 }
 
 
@@ -65,8 +65,7 @@ function scissorsResults() {
     lossTally += 1;
     alert('rock. you lose');
   }
-score.innerHTML = 'wins ' + scoreTally;
-loss.innerHTML = 'losses ' + lossTally;
+tallyUpdate();
 }
 
 
