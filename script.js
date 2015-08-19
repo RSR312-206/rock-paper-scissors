@@ -1,23 +1,34 @@
-
+var score = document.getElementById('score');
+var loss = document.getElementById('losses');
+var button  = document.querySelector('button');
+var scissors = document.getElementById('scissors');
+var paper = document.getElementById('paper');
+var rock = document.getElementById('rock');
+var divs = document.getElementById('alldivs');
 
 var scoreTally = 0;
 var lossTally = 0;
 
-var score = document.getElementById('score');
-var loss = document.getElementById('losses');
+divs.addEventListener("click", playerClick);
+function playerClick(e) {
+  if (e.target == paper) {
+    paperResults();
+  } else if (e.target == rock) {
+    rockResults();
+  } else scissorsResults();
+}
 
 function randomAnswer() {
   var options = ['rock', 'paper', 'scissors', 'rock', 'paper', 'scissors'];
   var answer = options[Math.floor(Math.random()*options.length)];
-   return answer;
- }
+  return answer;
+}
+
 function tallyUpdate() {
   score.innerHTML = 'wins ' + scoreTally;
   loss.innerHTML = 'losses ' + lossTally;
 }
 
-var rock = document.getElementById('rock');
-rock.addEventListener("click", rockResults);
 
 function rockResults() {
   var computerAnswer = randomAnswer();
@@ -30,11 +41,8 @@ function rockResults() {
   } else if (computerAnswer  == 'rock') {
     alert('rock, a tie');
   }
-tallyUpdate();
+  tallyUpdate();
 }
-
-var paper = document.getElementById('paper');
-paper.addEventListener('click', paperResults);
 
 function paperResults() {
   var computerAnswer = randomAnswer();
@@ -47,12 +55,8 @@ function paperResults() {
     scoreTally += 1;
     alert('paper, you won');
   }
-tallyUpdate();
+  tallyUpdate();
 }
-
-
-var scissors = document.getElementById('scissors');
-scissors.addEventListener('click', scissorsResults);
 
 function scissorsResults() {
   var computerAnswer = randomAnswer();
@@ -65,14 +69,13 @@ function scissorsResults() {
     lossTally += 1;
     alert('rock. you lose');
   }
-tallyUpdate();
+  tallyUpdate();
+
 }
 
-
-var button  = document.querySelector('button');
 button.addEventListener("click", function() {
   scoreTally = 0;
   lossTally = 0;
   score.innerHTML = 'wins ' + scoreTally;
   loss.innerHTML = 'losses ' + lossTally;
-  });
+});
