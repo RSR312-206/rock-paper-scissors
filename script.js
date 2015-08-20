@@ -9,14 +9,18 @@ var divs = document.getElementById('alldivs');
 var scoreTally = 0;
 var lossTally = 0;
 
-divs.addEventListener("click", playerClick);
-function playerClick(e) {
-  if (e.target == paper) {
-    paperResults();
-  } else if (e.target == rock) {
-    rockResults();
-  } else scissorsResults();
-}
+$('#alldivs').on('click', function(event) {
+  console.log(event.target);
+  if (event.target == paper) {
+    return paperResults();
+  } else if (event.target == rock) {
+    return rockResults();
+  } else if (event.target == scissors) {
+   return scissorsResults();
+ }
+
+});
+
 
 function randomAnswer() {
   var options = ['rock', 'paper', 'scissors', 'rock', 'paper', 'scissors'];
@@ -61,13 +65,13 @@ function paperResults() {
 function scissorsResults() {
   var computerAnswer = randomAnswer();
   if (computerAnswer == 'scissors') {
-    alert('scissors. a tie');
+    alert('scissors. a tie zzz');
   } else if (computerAnswer == 'paper') {
     scoreTally += 1;
-    alert('paper, you win');
+    alert('paper, you win zzz');
   } else if (computerAnswer == 'rock') {
     lossTally += 1;
-    alert('rock. you lose');
+    alert('rock. you lose zzzz');
   }
   tallyUpdate();
 
@@ -79,3 +83,19 @@ button.addEventListener("click", function() {
   score.innerHTML = 'wins ' + scoreTally;
   loss.innerHTML = 'losses ' + lossTally;
 });
+
+
+
+//divs.addEventListener("click", playerClick);
+// $('.box').on("click", function(event) {
+//     if ($(this).children().length > 0) {
+//       $(this).empty();
+//     } else $(this).html('<img width = "90%" length = "90%" src=http://cdn.cutestpaw.com/wp-content/uploads/2012/02/Dachshund-puppy-wearing-a-sweater-l.jpg>');
+//   });
+// function playerClick(e) {
+//   if (this.target == paper) {
+//     paperResults();
+//   } else if (this.target == rock) {
+//     rockResults();
+//   } else scissorsResults();
+// }
